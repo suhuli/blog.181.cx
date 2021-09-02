@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.181.cx</id>
+    <title>速狐博客</title>
+    <updated>2021-09-02T14:48:42.049Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://blog.181.cx"/>
+    <link rel="self" href="https://blog.181.cx/atom.xml"/>
+    <subtitle>念念不忘，必有回响！</subtitle>
+    <logo>https://blog.181.cx/images/avatar.png</logo>
+    <icon>https://blog.181.cx/favicon.ico</icon>
+    <rights>All rights reserved 2021, 速狐博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Hello word]]></title>
+        <id>https://blog.181.cx/post/hello-gridea/</id>
+        <link href="https://blog.181.cx/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Hello word！</p>
+]]></content>
+    </entry>
+</feed>
