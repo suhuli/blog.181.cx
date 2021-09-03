@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.181.cx</id>
     <title>速狐博客</title>
-    <updated>2021-09-03T03:38:15.290Z</updated>
+    <updated>2021-09-03T03:40:53.075Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.181.cx"/>
     <link rel="self" href="https://blog.181.cx/atom.xml"/>
@@ -32,8 +32,8 @@ slmgr /xpr</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello word]]></title>
-        <id>https://blog.181.cx/post/hello-gridea/</id>
-        <link href="https://blog.181.cx/post/hello-gridea/">
+        <id>https://blog.181.cx/post/hello-word/</id>
+        <link href="https://blog.181.cx/post/hello-word/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>Hello word！</p>
