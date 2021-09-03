@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://blog.181.cx</id>
     <title>速狐博客</title>
-    <updated>2021-09-03T03:48:51.707Z</updated>
+    <updated>2021-09-03T04:11:54.918Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://blog.181.cx"/>
     <link rel="self" href="http://blog.181.cx/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>http://blog.181.cx/images/avatar.png</logo>
     <icon>http://blog.181.cx/favicon.ico</icon>
     <rights>All rights reserved 2021, 速狐博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Cloudflare免费ssl证书设置]]></title>
+        <id>http://blog.181.cx/post/cloudflare-mian-fei-ssl-zheng-shu-she-zhi/</id>
+        <link href="http://blog.181.cx/post/cloudflare-mian-fei-ssl-zheng-shu-she-zhi/">
+        </link>
+        <updated>2021-09-03T04:04:24.000Z</updated>
+        <content type="html"><![CDATA[<p>选择Crypto，设置ssl加密状态，分为三种。<br>
+OFF（关闭）：没有访问者能够通过HTTPS查看您的网站; 他们将被重定向到HTTP。</p>
+<p>Flexible SSL（灵活的SSL）：即使使用对您的站点无效的证书，也无法在您的原始设备上配置HTTPS支持。访问者将能够通过HTTPS访问您的网站，但通过HTTP连接到您的来源。注意：您可能会遇到一些带有一些原点配置的重定向循环。</p>
+<p>Full SSL（完整SSL）：您的源支持HTTPS，但安装的证书与您的域不匹配或者是自签名的。Cloudflare将通过HTTPS连接到您的来源，但不会验证证书。</p>
+<p>Full SSL (strict)（完全SSL（严格））：您的原产地有安装的有效证书（未过期并由受信任的CA或Cloudflare Origin CA签署）。Cloudflare将通过HTTPS连接并验证每个请求的证书。</p>
+<p>选择自己合适的加密状态。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[KMS万能激活win系统]]></title>
         <id>http://blog.181.cx/post/kms-wan-neng-ji-huo-win-xi-tong/</id>
