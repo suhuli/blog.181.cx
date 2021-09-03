@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.181.cx</id>
     <title>速狐博客</title>
-    <updated>2021-09-03T04:31:42.139Z</updated>
+    <updated>2021-09-03T04:42:33.254Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.181.cx"/>
     <link rel="self" href="https://blog.181.cx/atom.xml"/>
@@ -11,12 +11,12 @@
     <icon>https://blog.181.cx/favicon.ico</icon>
     <rights>All rights reserved 2021, 速狐博客</rights>
     <entry>
-        <title type="html"><![CDATA[Cloudflare免费ssl证书设置笔记]]></title>
+        <title type="html"><![CDATA[Cloudflare免费ssl证书设置]]></title>
         <id>https://blog.181.cx/post/cloudflare-mian-fei-ssl-zheng-shu-she-zhi/</id>
         <link href="https://blog.181.cx/post/cloudflare-mian-fei-ssl-zheng-shu-she-zhi/">
         </link>
         <updated>2021-09-03T04:04:24.000Z</updated>
-        <content type="html"><![CDATA[<p>选择Crypto，设置ssl加密状态，分为三种。<br>
+        <content type="html"><![CDATA[<p>Cloudflare设置ssl加密状态，分为三种。<br>
 OFF（关闭）：没有访问者能够通过HTTPS查看您的网站; 他们将被重定向到HTTP。</p>
 <p>Flexible SSL（灵活的SSL）：即使使用对您的站点无效的证书，也无法在您的原始设备上配置HTTPS支持。访问者将能够通过HTTPS访问您的网站，但通过HTTP连接到您的来源。注意：您可能会遇到一些带有一些原点配置的重定向循环。</p>
 <p>Full SSL（完整SSL）：您的源支持HTTPS，但安装的证书与您的域不匹配或者是自签名的。Cloudflare将通过HTTPS连接到您的来源，但不会验证证书。</p>
