@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Cloudflare免费ssl证书设置 | 速狐博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.181.cx/favicon.ico?v=1670097594803">
+<link rel="stylesheet" href="https://blog.181.cx/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="Cloudflare设置ssl加密状态，分为三种。
+OFF（关闭）：没有访问者能够通过HTTPS查看您的网站; 他们将被重定向到HTTP。
+Flexible SSL（灵活的SSL）：即使使用对您的站点无效的证书，也无法在您的原始设备上配置H..." />
+    <meta name="keywords" content="CDN" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.181.cx">
+        <img src="https://blog.181.cx/images/avatar.png?v=1670097594803" class="site-logo">
+        <h1 class="site-title">速狐博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      风吟于实，坦然于行！
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://www.181.cx" target="_blank">SUHU</a> | <a class="rss" href="https://blog.181.cx/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Cloudflare免费ssl证书设置</h2>
+            <div class="post-date">2021-09-03</div>
+            
+              <div class="feature-container" style="background-image: url('https://blog.181.cx/post-images/cloudflare-mian-fei-ssl-zheng-shu-she-zhi.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>Cloudflare设置ssl加密状态，分为三种。<br>
+OFF（关闭）：没有访问者能够通过HTTPS查看您的网站; 他们将被重定向到HTTP。</p>
+<p>Flexible SSL（灵活的SSL）：即使使用对您的站点无效的证书，也无法在您的原始设备上配置HTTPS支持。访问者将能够通过HTTPS访问您的网站，但通过HTTP连接到您的来源。注意：您可能会遇到一些带有一些原点配置的重定向循环。</p>
+<p>Full SSL（完整SSL）：您的源支持HTTPS，但安装的证书与您的域不匹配或者是自签名的。Cloudflare将通过HTTPS连接到您的来源，但不会验证证书。</p>
+<p>Full SSL (strict)（完全SSL（严格））：您的原产地有安装的有效证书（未过期并由受信任的CA或Cloudflare Origin CA签署）。Cloudflare将通过HTTPS连接并验证每个请求的证书。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://blog.181.cx/tag/QhR9l68l4/" class="tag">
+                    CDN
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.181.cx/post/kms-wan-neng-ji-huo-win-xi-tong/">
+                  <h3 class="post-title">
+                    KMS万能激活win系统
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

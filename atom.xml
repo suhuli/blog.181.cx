@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.181.cx</id>
+    <title>速狐博客</title>
+    <updated>2022-12-03T19:59:59.601Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://blog.181.cx"/>
+    <link rel="self" href="https://blog.181.cx/atom.xml"/>
+    <subtitle>风吟于实，坦然于行！</subtitle>
+    <logo>https://blog.181.cx/images/avatar.png</logo>
+    <icon>https://blog.181.cx/favicon.ico</icon>
+    <rights>All rights reserved 2022, 速狐博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Netflix解锁-WARP]]></title>
+        <id>https://blog.181.cx/post/netflix-jie-suo-warp/</id>
+        <link href="https://blog.181.cx/post/netflix-jie-suo-warp/">
+        </link>
+        <updated>2022-12-03T16:02:19.000Z</updated>
+        <summary type="html"><![CDATA[<p>检测工具地址<br>
+https://github.com/sjlleo/netflix-verify</p>
+<p>测试环境：debian10</p>
+<p>检测Netflix支持命令-适用amd64（x86_64）<br>
+wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/v3.1.0/nf_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; ./nf</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>检测工具地址<br>
+https://github.com/sjlleo/netflix-verify</p>
+<p>测试环境：debian10</p>
+<p>检测Netflix支持命令-适用amd64（x86_64）<br>
+wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/v3.1.0/nf_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; ./nf</p>
+<!-- more -->
+<p>在线自动刷WARP流量地址<br>
+https://replit.com/@aliilapro/warp</p>
+<!-- more -->
+<p>【WGCF】连接CF WARP为服务器添加IPv4/IPv6网络<br>
+仓库地址：https://github.com/fscarmen/warp</p>
+<!-- more -->
+<p>常用命令：</p>
+<p>首次运行<br>
+wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence]</p>
+<p>备用新<br>
+wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh &amp;&amp; bash warp-go.sh</p>
+<p>再次运行<br>
+warp [option] [lisence]</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[萌咖debian9一键DD脚本]]></title>
+        <id>https://blog.181.cx/post/meng-ka-debian9-yi-jian-dd-jiao-ben/</id>
+        <link href="https://blog.181.cx/post/meng-ka-debian9-yi-jian-dd-jiao-ben/">
+        </link>
+        <updated>2022-08-11T12:47:03.000Z</updated>
+        <summary type="html"><![CDATA[<p>DD系统<br>
+萌咖大佬已经成功测试DD脚本！这样我们比较方便的使用debian系统了！</p>
+<p>甲骨文原系统请选择 ubuntu16 （18系统兼容有一些问题！）</p>
+<p>安装debian9脚本 (-firmware 额外驱动支持）</p>
+<p>curl支持，建议提前安装<br>
+CentOS：<br>
+yum update -y &amp;&amp; yum install curl -y</p>
+<p>Debian/Ubuntu：<br>
+apt-get update -y &amp;&amp; apt-get install curl -y</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>DD系统<br>
+萌咖大佬已经成功测试DD脚本！这样我们比较方便的使用debian系统了！</p>
+<p>甲骨文原系统请选择 ubuntu16 （18系统兼容有一些问题！）</p>
+<p>安装debian9脚本 (-firmware 额外驱动支持）</p>
+<p>curl支持，建议提前安装<br>
+CentOS：<br>
+yum update -y &amp;&amp; yum install curl -y</p>
+<p>Debian/Ubuntu：<br>
+apt-get update -y &amp;&amp; apt-get install curl -y</p>
+<!-- more -->
+<p>bash &lt;(wget --no-check-certificate -qO- 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh') -d 9 -v 64 -p 'RUYO' -a -firmware</p>
+<!-- more -->
+<p>适用于甲骨文，VIR等机器 （账号: root   密码:RUYO）</p>
+<p>文献参考：https://moeclub.org/2018/04/03/603/</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cloudflare免费ssl证书设置]]></title>
+        <id>https://blog.181.cx/post/cloudflare-mian-fei-ssl-zheng-shu-she-zhi/</id>
+        <link href="https://blog.181.cx/post/cloudflare-mian-fei-ssl-zheng-shu-she-zhi/">
+        </link>
+        <updated>2021-09-03T04:04:24.000Z</updated>
+        <content type="html"><![CDATA[<p>Cloudflare设置ssl加密状态，分为三种。<br>
+OFF（关闭）：没有访问者能够通过HTTPS查看您的网站; 他们将被重定向到HTTP。</p>
+<p>Flexible SSL（灵活的SSL）：即使使用对您的站点无效的证书，也无法在您的原始设备上配置HTTPS支持。访问者将能够通过HTTPS访问您的网站，但通过HTTP连接到您的来源。注意：您可能会遇到一些带有一些原点配置的重定向循环。</p>
+<p>Full SSL（完整SSL）：您的源支持HTTPS，但安装的证书与您的域不匹配或者是自签名的。Cloudflare将通过HTTPS连接到您的来源，但不会验证证书。</p>
+<p>Full SSL (strict)（完全SSL（严格））：您的原产地有安装的有效证书（未过期并由受信任的CA或Cloudflare Origin CA签署）。Cloudflare将通过HTTPS连接并验证每个请求的证书。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[KMS万能激活win系统]]></title>
+        <id>https://blog.181.cx/post/kms-wan-neng-ji-huo-win-xi-tong/</id>
+        <link href="https://blog.181.cx/post/kms-wan-neng-ji-huo-win-xi-tong/">
+        </link>
+        <updated>2021-09-02T15:29:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>1.使用txt记事本复制粘贴以下代码保存。<br>
+2.将txt记事本修改为bat文件。<br>
+3.右击已创建的bat文件，以管理员身份运行。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>1.使用txt记事本复制粘贴以下代码保存。<br>
+2.将txt记事本修改为bat文件。<br>
+3.右击已创建的bat文件，以管理员身份运行。</p>
+<!-- more -->
+<p>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX<br>
+slmgr /skms xihutalk.myds.me<br>
+slmgr /ato<br>
+slmgr /xpr</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello word]]></title>
+        <id>https://blog.181.cx/post/hello-word/</id>
+        <link href="https://blog.181.cx/post/hello-word/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Hello word！</p>
+]]></content>
+    </entry>
+</feed>
