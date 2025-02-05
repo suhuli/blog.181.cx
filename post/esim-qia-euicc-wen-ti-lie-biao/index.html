@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>esim卡euicc问题列表 | 速狐博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.181.cx/favicon.ico?v=1738769238741">
+<link rel="stylesheet" href="https://blog.181.cx/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="卡片是400k，每个esim profile的大小差不多是20~30k，这样最多同时能写入大概是20个，多了只能删掉旧的。（寿命保守估计3-5年）
+Q：通知有什么用？在哪里看？
+A：其实这个通知是发送给运营商的，让运营商知道你对esim配置..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.181.cx">
+        <img src="https://blog.181.cx/images/avatar.png?v=1738769238741" class="site-logo">
+        <h1 class="site-title">速狐博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      风吟于实，坦然于行！
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://www.181.cx" target="_blank">SUHU</a> | <a class="rss" href="https://blog.181.cx/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">esim卡euicc问题列表</h2>
+            <div class="post-date">2025-02-05</div>
+            
+            <div class="post-content" v-pre>
+              <p>卡片是400k，每个esim profile的大小差不多是20~30k，这样最多同时能写入大概是20个，多了只能删掉旧的。（寿命保守估计3-5年）</p>
+<p>Q：通知有什么用？在哪里看？</p>
+<p>A：其实这个通知是发送给运营商的，让运营商知道你对esim配置进行了一些操作。</p>
+<p>Q：那我能不能不发送通知？</p>
+<p>A：当然可以。但是有部分运营商只有收到了“安装通知”后才允许你接入基站，也有一部分运营商（比如“CTM”）只有收到了“删除通知”（也就是“联网删除”），才允许你把esim配置写入其他设备。</p>
+<p>Q：正常勾选哪几个？</p>
+<p>A：按照标准来说，应该全部勾选。类似iPhone的原生esim管理，就是自动发送并移除通知的。但是“启用通知”和“禁用通知”，似乎运营商也不在意，开启之后切卡速度会变慢。</p>
+<p>Q：那为什么默认选项不勾选“并移除”呢？</p>
+<p>A：这是因为之前有部分群友，遇到部分运营商（比如“OneNZ”）发送删除通知，运营商由于网络问题没能收到。这就导致配置已经被删除了，但是不是“联网删除”。所以无法下载新的配置文件。这就需要和客服沟通解决或者去营业厅处理了。如果MiniLPA软件还没有移除通知，那你还能再发一遍（或多遍）。通知这玩意儿，用MiniLPA作者的话说：“你胆子大不怕卡丢了，随便删”。</p>
+<p>补一下重新发送通知的操作：右击需要重新发送的通知，点击“发送”按钮即可。</p>
+<p>我们在购买eSIM后，一般会收到一个二维码，正常手机扫码后就可以安装eSIM，而5ber则是使用官方App扫码。其实这个二维码的内容很简单，格式如下：<br>
+格式<br>
+LPA:1<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>M</mi><mo>−</mo><mi>D</mi><mi>P</mi><msub><mo>+</mo><mi>A</mi></msub><mi>D</mi><mi>D</mi><mi>R</mi><mi>E</mi><mi>S</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">{SM-DP+_ADDRESS}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin"><span class="mbin">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span></span>{MATCHING_ID}</p>
+<p>SM-DP+_ADDRESS是一个域名，MATCHING_ID是一个id标示符。扫码以后，手机会带上MATCHING_ID，去SM-DP+_ADDRESS这个域名所在的服务器中下载对应的profile文件，并写入eUICC中。<br>
+<img src="https://blog.181.cx/post-images/1738768730822.png" alt="" loading="lazy"></p>
+<p>很经典的一篇文章，可以说是奠基之作，必看：https://iecho.cc/2023/10/20/Convert-eSIM-to-physical-SIM/<br>
+合法eUICC CI证书id列表：https://euicc-manual.osmocom.org/docs/pki/ci/<br>
+eSTK.me: 下一代可插拔消费者 eSIM 卡：https://iecho.cc/2024/03/16/estk-me-next-generation-removable-consumer-esim/<br>
+EID列表：https://euicc-manual.osmocom.org/docs/pki/eum/</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.181.cx/post/cloudflared-nei-wang-chuan-tou-shi-xian-windows-yuan-cheng-zhuo-mian/">
+                  <h3 class="post-title">
+                    cloudflared内网穿透实现Windows远程桌面
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

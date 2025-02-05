@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>cloudflared内网穿透实现Windows远程桌面 | 速狐博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.181.cx/favicon.ico?v=1738769238741">
+<link rel="stylesheet" href="https://blog.181.cx/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="提前准备
+Cloudflare账号，注册地址：https://www.cloudflare.com
+自定义域名并托管到Cloudflare（使用Freenom免费域名）
+下载 Cloudflare可执行文件 下载地址：https://git..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.181.cx">
+        <img src="https://blog.181.cx/images/avatar.png?v=1738769238741" class="site-logo">
+        <h1 class="site-title">速狐博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      风吟于实，坦然于行！
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://www.181.cx" target="_blank">SUHU</a> | <a class="rss" href="https://blog.181.cx/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">cloudflared内网穿透实现Windows远程桌面</h2>
+            <div class="post-date">2024-12-01</div>
+            
+            <div class="post-content" v-pre>
+              <p>提前准备<br>
+Cloudflare账号，注册地址：https://www.cloudflare.com<br>
+自定义域名并托管到Cloudflare（使用Freenom免费域名）<br>
+下载 Cloudflare可执行文件 下载地址：https://github.com/cloudflare/cloudflared/releases</p>
+<p>被控端电脑配置<br>
+将 下载好的可执行文件(cloudflared-windows-amd64.exe) 复制到 自己定义的目录 并改短名称为(cloudflared.exe)，方便操作<br>
+在当前目录打开 cmd 窗口，输入如下命令进行登录验证，会自动打开游览器进行登录<br>
+cloudflared.exe login</p>
+<p>登录完成之后会在 C:\Users%USERNAME%.cloudflared 目录下生成登录凭证<br>
+<img src="https://blog.181.cx/post-images/1733066741280.png" alt="" loading="lazy"></p>
+<p>创建隧道，随意自定义名称<br>
+cloudflared.exe tunnel create <NAME></p>
+<p>配置 DNS 记录（使用Freenom免费域名），就是上一步创建的隧道名称<br>
+cloudflared.exe tunnel route dns <NAME> diy.181.cx</p>
+<p>配置完成之后，可以在控制台看到记录<br>
+<img src="https://blog.181.cx/post-images/1733066853151.png" alt="" loading="lazy"></p>
+<p>在 cloudflared.exe 同级目录创建一个 config.yaml 文件，内容如下</p>
+<h1 id="隧道的-uuid-就是登录凭证的json文件名称">隧道的 UUID, 就是登录凭证的json文件名称</h1>
+<p>tunnel: xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx</p>
+<h1 id="鉴权文件的全路径注意替换为自己的">鉴权文件的全路径，注意替换为自己的</h1>
+<p>credentials-file: C:\Users%USERNAME%.cloudflared\xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx.json</p>
+<p>ingress:</p>
+<h1 id="你的freenom二级域名">你的freenom二级域名</h1>
+<ul>
+<li>hostname: diy.domain.cf<br>
+service: rdp://localhost:3389</li>
+</ul>
+<h1 id="默认错误404">默认错误404</h1>
+<ul>
+<li>service: http_status:404</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.181.cx/post/yun-dian-nao-dd-liu-cheng/">
+                  <h3 class="post-title">
+                    云电脑DD流程
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

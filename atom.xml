@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.181.cx</id>
+    <title>速狐博客</title>
+    <updated>2025-02-05T15:27:34.346Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://blog.181.cx"/>
+    <link rel="self" href="https://blog.181.cx/atom.xml"/>
+    <subtitle>风吟于实，坦然于行！</subtitle>
+    <logo>https://blog.181.cx/images/avatar.png</logo>
+    <icon>https://blog.181.cx/favicon.ico</icon>
+    <rights>All rights reserved 2025, 速狐博客</rights>
+    <entry>
+        <title type="html"><![CDATA[esim卡euicc问题列表]]></title>
+        <id>https://blog.181.cx/post/esim-qia-euicc-wen-ti-lie-biao/</id>
+        <link href="https://blog.181.cx/post/esim-qia-euicc-wen-ti-lie-biao/">
+        </link>
+        <updated>2025-02-05T14:59:12.000Z</updated>
+        <content type="html"><![CDATA[<p>卡片是400k，每个esim profile的大小差不多是20~30k，这样最多同时能写入大概是20个，多了只能删掉旧的。（寿命保守估计3-5年）</p>
+<p>Q：通知有什么用？在哪里看？</p>
+<p>A：其实这个通知是发送给运营商的，让运营商知道你对esim配置进行了一些操作。</p>
+<p>Q：那我能不能不发送通知？</p>
+<p>A：当然可以。但是有部分运营商只有收到了“安装通知”后才允许你接入基站，也有一部分运营商（比如“CTM”）只有收到了“删除通知”（也就是“联网删除”），才允许你把esim配置写入其他设备。</p>
+<p>Q：正常勾选哪几个？</p>
+<p>A：按照标准来说，应该全部勾选。类似iPhone的原生esim管理，就是自动发送并移除通知的。但是“启用通知”和“禁用通知”，似乎运营商也不在意，开启之后切卡速度会变慢。</p>
+<p>Q：那为什么默认选项不勾选“并移除”呢？</p>
+<p>A：这是因为之前有部分群友，遇到部分运营商（比如“OneNZ”）发送删除通知，运营商由于网络问题没能收到。这就导致配置已经被删除了，但是不是“联网删除”。所以无法下载新的配置文件。这就需要和客服沟通解决或者去营业厅处理了。如果MiniLPA软件还没有移除通知，那你还能再发一遍（或多遍）。通知这玩意儿，用MiniLPA作者的话说：“你胆子大不怕卡丢了，随便删”。</p>
+<p>补一下重新发送通知的操作：右击需要重新发送的通知，点击“发送”按钮即可。</p>
+<p>我们在购买eSIM后，一般会收到一个二维码，正常手机扫码后就可以安装eSIM，而5ber则是使用官方App扫码。其实这个二维码的内容很简单，格式如下：<br>
+格式<br>
+LPA:1<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>M</mi><mo>−</mo><mi>D</mi><mi>P</mi><msub><mo>+</mo><mi>A</mi></msub><mi>D</mi><mi>D</mi><mi>R</mi><mi>E</mi><mi>S</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">{SM-DP+_ADDRESS}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin"><span class="mbin">+</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span></span>{MATCHING_ID}</p>
+<p>SM-DP+_ADDRESS是一个域名，MATCHING_ID是一个id标示符。扫码以后，手机会带上MATCHING_ID，去SM-DP+_ADDRESS这个域名所在的服务器中下载对应的profile文件，并写入eUICC中。<br>
+<img src="https://blog.181.cx/post-images/1738768730822.png" alt="" loading="lazy"></p>
+<p>很经典的一篇文章，可以说是奠基之作，必看：https://iecho.cc/2023/10/20/Convert-eSIM-to-physical-SIM/<br>
+合法eUICC CI证书id列表：https://euicc-manual.osmocom.org/docs/pki/ci/<br>
+eSTK.me: 下一代可插拔消费者 eSIM 卡：https://iecho.cc/2024/03/16/estk-me-next-generation-removable-consumer-esim/<br>
+EID列表：https://euicc-manual.osmocom.org/docs/pki/eum/</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[cloudflared内网穿透实现Windows远程桌面]]></title>
+        <id>https://blog.181.cx/post/cloudflared-nei-wang-chuan-tou-shi-xian-windows-yuan-cheng-zhuo-mian/</id>
+        <link href="https://blog.181.cx/post/cloudflared-nei-wang-chuan-tou-shi-xian-windows-yuan-cheng-zhuo-mian/">
+        </link>
+        <updated>2024-12-01T15:23:40.000Z</updated>
+        <content type="html"><![CDATA[<p>提前准备<br>
+Cloudflare账号，注册地址：https://www.cloudflare.com<br>
+自定义域名并托管到Cloudflare（使用Freenom免费域名）<br>
+下载 Cloudflare可执行文件 下载地址：https://github.com/cloudflare/cloudflared/releases</p>
+<p>被控端电脑配置<br>
+将 下载好的可执行文件(cloudflared-windows-amd64.exe) 复制到 自己定义的目录 并改短名称为(cloudflared.exe)，方便操作<br>
+在当前目录打开 cmd 窗口，输入如下命令进行登录验证，会自动打开游览器进行登录<br>
+cloudflared.exe login</p>
+<p>登录完成之后会在 C:\Users%USERNAME%.cloudflared 目录下生成登录凭证<br>
+<img src="https://blog.181.cx/post-images/1733066741280.png" alt="" loading="lazy"></p>
+<p>创建隧道，随意自定义名称<br>
+cloudflared.exe tunnel create <NAME></p>
+<p>配置 DNS 记录（使用Freenom免费域名），就是上一步创建的隧道名称<br>
+cloudflared.exe tunnel route dns <NAME> diy.181.cx</p>
+<p>配置完成之后，可以在控制台看到记录<br>
+<img src="https://blog.181.cx/post-images/1733066853151.png" alt="" loading="lazy"></p>
+<p>在 cloudflared.exe 同级目录创建一个 config.yaml 文件，内容如下</p>
+<h1 id="隧道的-uuid-就是登录凭证的json文件名称">隧道的 UUID, 就是登录凭证的json文件名称</h1>
+<p>tunnel: xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx</p>
+<h1 id="鉴权文件的全路径注意替换为自己的">鉴权文件的全路径，注意替换为自己的</h1>
+<p>credentials-file: C:\Users%USERNAME%.cloudflared\xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx.json</p>
+<p>ingress:</p>
+<h1 id="你的freenom二级域名">你的freenom二级域名</h1>
+<ul>
+<li>hostname: diy.domain.cf<br>
+service: rdp://localhost:3389</li>
+</ul>
+<h1 id="默认错误404">默认错误404</h1>
+<ul>
+<li>service: http_status:404</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[云电脑DD流程]]></title>
+        <id>https://blog.181.cx/post/yun-dian-nao-dd-liu-cheng/</id>
+        <link href="https://blog.181.cx/post/yun-dian-nao-dd-liu-cheng/">
+        </link>
+        <updated>2024-12-01T15:16:24.000Z</updated>
+        <content type="html"><![CDATA[<p>下载脚本<br>
+certutil -urlcache -f -split https://ghps.cc/https://raw.githubusercontent.com/bin456789/reinstall/main/reinstall.bat</p>
+<p>执行脚本（管理员权限./）<br>
+reinstall.bat windows --iso='11111111'  --image-name='xxxxxxxx'</p>
+<p>win11一键脚本示例<br>
+reinstall.bat windows --iso='https://drive.massgrave.dev/zh-cn_windows_11_business_editions_version_23h2_x64_dvd_2a79e0f1.iso'  --image-name='Windows 11 Pro'</p>
+<p>iso镜像下载地址：在https://massgrave.dev/genuine-installation-media.html网站查找，将下载链接粘贴到上方11111111处。</p>
+<p>image-name：获取方式在Bin大佬github的README中有详细说明：https://github.com/bin456789/reinstall#readme</p>
+<p>开机密码123@@@</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Netflix解锁-WARP]]></title>
+        <id>https://blog.181.cx/post/netflix-jie-suo-warp/</id>
+        <link href="https://blog.181.cx/post/netflix-jie-suo-warp/">
+        </link>
+        <updated>2022-12-03T16:02:19.000Z</updated>
+        <summary type="html"><![CDATA[<p>检测工具地址<br>
+https://github.com/sjlleo/netflix-verify</p>
+<p>测试环境：debian10</p>
+<p>检测Netflix支持命令-适用amd64（x86_64）<br>
+wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/v3.1.0/nf_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; ./nf</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>检测工具地址<br>
+https://github.com/sjlleo/netflix-verify</p>
+<p>测试环境：debian10</p>
+<p>检测Netflix支持命令-适用amd64（x86_64）<br>
+wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/v3.1.0/nf_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; ./nf</p>
+<!-- more -->
+<p>在线自动刷WARP流量地址<br>
+https://replit.com/@aliilapro/warp</p>
+<!-- more -->
+<p>【WGCF】连接CF WARP为服务器添加IPv4/IPv6网络<br>
+仓库地址：https://github.com/fscarmen/warp</p>
+<!-- more -->
+<p>常用命令：</p>
+<p>首次运行<br>
+wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence]</p>
+<p>备用新<br>
+wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh &amp;&amp; bash warp-go.sh</p>
+<p>再次运行<br>
+warp [option] [lisence]</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[萌咖debian9一键DD脚本]]></title>
+        <id>https://blog.181.cx/post/meng-ka-debian9-yi-jian-dd-jiao-ben/</id>
+        <link href="https://blog.181.cx/post/meng-ka-debian9-yi-jian-dd-jiao-ben/">
+        </link>
+        <updated>2022-08-11T12:47:03.000Z</updated>
+        <summary type="html"><![CDATA[<p>DD系统<br>
+萌咖大佬已经成功测试DD脚本！这样我们比较方便的使用debian系统了！</p>
+<p>甲骨文原系统请选择 ubuntu16 （18系统兼容有一些问题！）</p>
+<p>安装debian9脚本 (-firmware 额外驱动支持）</p>
+<p>curl支持，建议提前安装<br>
+CentOS：<br>
+yum update -y &amp;&amp; yum install curl -y</p>
+<p>Debian/Ubuntu：<br>
+apt-get update -y &amp;&amp; apt-get install curl -y</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>DD系统<br>
+萌咖大佬已经成功测试DD脚本！这样我们比较方便的使用debian系统了！</p>
+<p>甲骨文原系统请选择 ubuntu16 （18系统兼容有一些问题！）</p>
+<p>安装debian9脚本 (-firmware 额外驱动支持）</p>
+<p>curl支持，建议提前安装<br>
+CentOS：<br>
+yum update -y &amp;&amp; yum install curl -y</p>
+<p>Debian/Ubuntu：<br>
+apt-get update -y &amp;&amp; apt-get install curl -y</p>
+<!-- more -->
+<p>bash &lt;(wget --no-check-certificate -qO- 'https://moeclub.org/attachment/LinuxShell/InstallNET.sh') -d 9 -v 64 -p 'RUYO' -a -firmware</p>
+<!-- more -->
+<p>适用于甲骨文，VIR等机器 （账号: root   密码:RUYO）</p>
+<p>ubuntu进入设置密钥进入root用户<br>
+sudo passwd root<br>
+su<br>
+文献参考：https://moeclub.org/2018/04/03/603/<br>
+其他dd脚本：https://github.com/bin456789/reinstall</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cloudflare免费ssl证书设置]]></title>
+        <id>https://blog.181.cx/post/cloudflare-mian-fei-ssl-zheng-shu-she-zhi/</id>
+        <link href="https://blog.181.cx/post/cloudflare-mian-fei-ssl-zheng-shu-she-zhi/">
+        </link>
+        <updated>2021-09-03T04:04:24.000Z</updated>
+        <content type="html"><![CDATA[<p>Cloudflare设置ssl加密状态，分为三种。<br>
+OFF（关闭）：没有访问者能够通过HTTPS查看您的网站; 他们将被重定向到HTTP。</p>
+<p>Flexible SSL（灵活的SSL）：即使使用对您的站点无效的证书，也无法在您的原始设备上配置HTTPS支持。访问者将能够通过HTTPS访问您的网站，但通过HTTP连接到您的来源。注意：您可能会遇到一些带有一些原点配置的重定向循环。</p>
+<p>Full SSL（完整SSL）：您的源支持HTTPS，但安装的证书与您的域不匹配或者是自签名的。Cloudflare将通过HTTPS连接到您的来源，但不会验证证书。</p>
+<p>Full SSL (strict)（完全SSL（严格））：您的原产地有安装的有效证书（未过期并由受信任的CA或Cloudflare Origin CA签署）。Cloudflare将通过HTTPS连接并验证每个请求的证书。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[KMS万能激活win系统]]></title>
+        <id>https://blog.181.cx/post/kms-wan-neng-ji-huo-win-xi-tong/</id>
+        <link href="https://blog.181.cx/post/kms-wan-neng-ji-huo-win-xi-tong/">
+        </link>
+        <updated>2021-09-02T15:29:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>1.使用txt记事本复制粘贴以下代码保存。<br>
+2.将txt记事本修改为bat文件。<br>
+3.右击已创建的bat文件，以管理员身份运行。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>1.使用txt记事本复制粘贴以下代码保存。<br>
+2.将txt记事本修改为bat文件。<br>
+3.右击已创建的bat文件，以管理员身份运行。</p>
+<!-- more -->
+<p>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX<br>
+slmgr /skms xihutalk.myds.me<br>
+slmgr /ato<br>
+slmgr /xpr</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello word]]></title>
+        <id>https://blog.181.cx/post/hello-word/</id>
+        <link href="https://blog.181.cx/post/hello-word/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>Hello word！</p>
+]]></content>
+    </entry>
+</feed>
