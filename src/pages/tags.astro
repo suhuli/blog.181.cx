@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const counts = new Map<string, number>();
+posts.forEach(post => post.data.tags.forEach(tag => counts.set(tag, (counts.get(tag) || 0) + 1)));
+const tags = [...counts.entries()].sort((a,b) => b[1] - a[1]);
+---
+<BaseLayout title="标签" description="按标签浏览速狐博客">
+  <header class="page-hero"><div class="shell"><span class="eyebrow">Topics</span><h1>标签</h1><p>从感兴趣的主题开始浏览。</p></div></header>
+  <section class="section"><div class="shell tags-cloud">
+    {tags.map(([tag, count]) => <a class="tag-chip" href={`/tag/${encodeURIComponent(tag)}/`}>{tag} · {count}</a>)}
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const latest = posts.slice(0, 6);
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <span class="eyebrow">Personal technology notes</span>
+        <h1>保持好奇，<br /><em>记录折腾。</em></h1>
+        <p class="lead">关于网络、系统与数字生活的实践笔记。少一点噪音，多一点真正解决问题的过程。</p>
+      </div>
+      <aside class="hero-note">
+        <strong>速狐博客正在重新生长</strong>
+        <p>全新的轻量架构，更快的加载体验，以及更专注的中文阅读排版。</p>
+        <span class="status">持续更新中</span>
+      </aside>
+    </div>
+  </section>
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Latest writing</span>
+          <h2>最近文章</h2>
+        </div>
+        <a class="text-link" href="/archives/">查看全部文章 →</a>
+      </div>
+      {latest.length ? <div class="post-grid">{latest.map(post => <PostCard post={post} />)}</div> : <p class="empty">还没有文章。</p>}
+    </div>
+  </section>
+</BaseLayout>

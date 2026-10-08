@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map(post => ({ params: { slug: post.data.slug }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const published = post.data.publishedAt.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<BaseLayout title={post.data.title} description={post.data.description} canonical={`/post/${post.data.slug}/`}>
+  <article class="article">
+    <header class="article-header">
+      <div class="article-meta"><time datetime={post.data.publishedAt.toISOString()}>{published}</time><span>·</span><span>{post.data.tags.join(' / ') || '随笔'}</span></div>
+      <h1>{post.data.title}</h1>
+      {post.data.description && <p class="description">{post.data.description}</p>}
+    </header>
+    <div class="prose"><Content /></div>
+    <footer class="article-footer">
+      <div class="tag-row">{post.data.tags.map((tag: string) => <a href={`/tag/${encodeURIComponent(tag)}/`}>#{tag}</a>)}</div>
+    </footer>
+  </article>
+</BaseLayout>

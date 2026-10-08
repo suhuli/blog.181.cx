@@ -1,0 +1,88 @@
+---
+import { SITE } from '../config';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = '/images/avatar.webp',
+  canonical = Astro.url.pathname
+} = Astro.props;
+const pageTitle = title ? `${title} · ${SITE.title}` : SITE.title;
+const canonicalURL = new URL(canonical, SITE.url);
+const imageURL = new URL(image, SITE.url);
+const currentPath = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f7f4" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('theme');
+        const dark = saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到正文</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/" aria-label={`${SITE.title}首页`}>
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span>{SITE.title}</span>
+        </a>
+        <nav class="nav" aria-label="主导航">
+          {SITE.nav.map((item) => (
+            <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="切换深浅色" title="切换深浅色">
+          <span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </header>
+    <main id="content"><slot /></main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div>
+          <strong>{SITE.title}</strong>
+          <p>{SITE.description}</p>
+        </div>
+        <div class="footer-links">
+          <a href="/rss.xml">RSS</a>
+          <a href="https://www.181.cx" rel="me">181.cx</a>
+          <span>© {new Date().getFullYear()} {SITE.author}</span>
+        </div>
+      </div>
+    </footer>
+    <script is:inline>
+      document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('theme', next);
+      });
+    </script>
+  </body>
+</html>

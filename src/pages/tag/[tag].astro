@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const tags = [...new Set(posts.flatMap(post => post.data.tags))];
+  return tags.map(tag => ({ params: { tag }, props: { tag, posts: posts.filter(post => post.data.tags.includes(tag)) } }));
+}
+const { tag, posts } = Astro.props;
+posts.sort((a: any,b: any) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+<BaseLayout title={`标签：${tag}`} description={`速狐博客中标签为 ${tag} 的文章`}>
+  <header class="page-hero"><div class="shell"><span class="eyebrow">Topic</span><h1>#{tag}</h1><p>这个主题下共有 {posts.length} 篇文章。</p></div></header>
+  <section class="section"><div class="shell post-grid">{posts.map((post: any) => <PostCard post={post} />)}</div></section>
+</BaseLayout>

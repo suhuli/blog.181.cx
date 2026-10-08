@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="关于" description="关于速狐博客">
+  <article class="article">
+    <header class="article-header"><span class="eyebrow">About</span><h1>你好，这里是速狐博客。</h1><p class="description">风吟于实，坦然于行。</p></header>
+    <div class="prose">
+      <p>这里记录网络、系统、Cloudflare、服务器和数字生活中的实践经验。文章首先服务于自己的记忆，也希望能为遇到相同问题的人节省一点时间。</p>
+      <h2>为什么重新设计</h2>
+      <p>旧博客完成了长期记录的任务，但加载速度、移动端体验和更新流程都需要改善。新版本保持纯静态发布，同时让页面更轻、更快、更容易维护。</p>
+      <p>博客内容仍保存在 GitHub；Cloudflare Worker 只负责安全的后台管理接口。</p>
+    </div>
+  </article>
+</BaseLayout>

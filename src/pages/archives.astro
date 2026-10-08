@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+<BaseLayout title="归档" description="速狐博客全部文章归档">
+  <header class="page-hero"><div class="shell"><span class="eyebrow">Archive</span><h1>归档</h1><p>按时间整理的全部文章，共 {posts.length} 篇。</p></div></header>
+  <section class="section"><div class="shell post-list">
+    {posts.map(post => <article class="post-list-row">
+      <time datetime={post.data.publishedAt.toISOString()}>{post.data.publishedAt.toLocaleDateString('zh-CN')}</time>
+      <h2><a href={`/post/${post.data.slug}/`}>{post.data.title}</a></h2>
+      <span class="row-tags">{post.data.tags.join(' · ')}</span>
+    </article>)}
+  </div></section>
+</BaseLayout>
